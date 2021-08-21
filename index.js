@@ -8,7 +8,10 @@ client.once("ready", () => {
 });
 
 client.on("message", async (message) => {
-  if (message.content === "!floor") {
+  if (
+    message.content === "!floor" &&
+    message.channel.name === "opensea-sales"
+  ) {
     const floor = await getFloorPrice();
     message.channel.send(floor);
   }
